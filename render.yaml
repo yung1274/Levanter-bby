@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: worker
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free # Choose an appropriate plan
+    numInstances: 1
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
