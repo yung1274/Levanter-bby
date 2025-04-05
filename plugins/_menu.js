@@ -10,6 +10,7 @@ const {
   getPlatform,
 } = require('../lib/')
 const { VERSION } = require('../config')
+
 bot.addCommand(
   {
     pattern: 'help ?(.*)',
@@ -38,6 +39,7 @@ bot.addCommand(
 │ Ram : ${getRam()}
 │ Uptime : ${getUptime('t')}
 │ Platform : ${getPlatform()}
+│ Fixed by Fluxx 💖
 ╰────────────────
 ╭────────────────
 `
@@ -76,6 +78,7 @@ bot.addCommand(
     await message.send('```' + msg.trim() + '```')
   }
 )
+
 bot.addCommand(
   {
     pattern: 'menu ?(.*)',
@@ -105,6 +108,7 @@ bot.addCommand(
 ┃❃│ Ram : ${getRam()}
 ┃❃│ Uptime : ${getUptime('t')}
 ┃❃│ Platform : ${getPlatform()}
+┃❃│ Fixed by Fluxx 💖  
 ┃❃╰───────────────
 ╰═════════════════⊷\`\`\`\n`
 
@@ -122,6 +126,13 @@ bot.addCommand(
         msg += ` │ ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
       msg += ` ╰─────────────────\n`
     }
+    
+    // Add buttons section at the end of the menu
+    msg += `\n ╭─❏ ${textToStylist('quick actions', 'smallcaps')} ❏\n`
+    msg += ` │ 🔘 *${PREFIX}ping* - Check bot response time\n`
+    msg += ` │ 👤 *Owner* - https://wa.me/2349015010957\n`
+    msg += ` ╰─────────────────\n`
+    
     await message.send(msg.trim())
   }
 )
