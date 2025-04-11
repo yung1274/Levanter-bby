@@ -6,5 +6,5 @@ services:
     startCommand: ./run.sh
     plan: free
     repo: https://github.com/treasur08/levy
-    branch: main
+    branch: master 
     autoDeploy: true
